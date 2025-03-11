@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>County Government</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Responsive Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(1.jpg);
+            background-position: center;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .logo {
+            color: #ff7200;
+            font-size: 28px;
+        }
+
+        .menu ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu ul li {
+            margin: 0 15px;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .menu ul li a:hover {
+            color: #ff7200;
+        }
+
+        .content {
+            text-align: center;
+            padding: 50px;
+            color: #fff;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">County Government</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a onclick="showPage('home')">HOME</a></li>
+                    <li><a onclick="showPage('about')">ABOUT</a></li>
+                    <li><a onclick="showPage('services')">SERVICE</a></li>
+                    <li><a onclick="showPage('finance')">FINANCE</a></li>
+                    <li><a onclick="showPage('contact')">CONTACT</a></li>
+                </ul>
+            </div>
+        </div> 
+        
+        <div id="home" class="content">
+            <h1>Welcome to the County Government</h1>
+            <p class="par">Empowering Progress, Ensuring Accountability</p>
+        </div>
+        
+        <div id="about" class="content hidden">
+            <h1>About Us</h1>
+            <p class="par">Learn about the County Government's mission, vision, and commitment to service.</p>
+        </div>
+
+        <div id="services" class="content hidden">
+            <h1>Our Services</h1>
+            <p class="par">We offer a wide range of public services to support development and growth.</p>
+        </div>
+
+        <div id="finance" class="content hidden">
+            <h1>Finance</h1>
+            <p class="par">Explore our financial resources and budget allocations.</p>
+        </div>
+
+        <div id="contact" class="content hidden">
+            <h1>Contact Us</h1>
+            <p class="par">Reach out for support or inquiries about our government services.</p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            let sections = document.querySelectorAll('.content');
+            sections.forEach(section => section.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
