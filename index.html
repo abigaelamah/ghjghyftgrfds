@@ -1,124 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>County Government</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Responsive Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<?xml version="1.0" encoding="UTF-8"?>
+<website>
+    <head>
+        <title>County Government</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            /* Responsive Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        body {
-            font-family: Arial, sans-serif;
-        }
+            body {
+                font-family: Arial, sans-serif;
+                background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(1.jpg);
+                background-position: center;
+                background-size: cover;
+                padding: 20px;
+                text-align: center;
+                color: white;
+            }
 
-        .main {
-            width: 100%;
-            min-height: 100vh;
-            background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(1.jpg);
-            background-position: center;
-            background-size: cover;
-            padding: 20px;
-        }
+            .form-container {
+                background: rgba(0, 0, 0, 0.7);
+                padding: 20px;
+                border-radius: 10px;
+                display: inline-block;
+                margin-top: 50px;
+            }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background: rgba(0, 0, 0, 0.7);
-        }
+            input, button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+            }
 
-        .logo {
-            color: #ff7200;
-            font-size: 28px;
-        }
-
-        .menu ul {
-            display: flex;
-            list-style: none;
-        }
-
-        .menu ul li {
-            margin: 0 15px;
-        }
-
-        .menu ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 16px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .menu ul li a:hover {
-            color: #ff7200;
-        }
-
-        .content {
-            text-align: center;
-            padding: 50px;
-            color: #fff;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <div class="main">
-        <div class="navbar">
-            <div class="icon">
-                <h2 class="logo">County Government</h2>
+            button {
+                background: #ff7200;
+                border: none;
+                color: white;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Signup/Login Page -->
+        <page id="signup">
+            <div class="form-container">
+                <title>Welcome to County Government</title>
+                <description>Please sign up or log in to continue.</description>
+                <form>
+                    <input type="email" placeholder="Enter Email" required/>
+                    <input type="password" placeholder="Enter Password" required/>
+                    <button onclick="navigateTo('home')">Login</button>
+                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                </form>
             </div>
-            <div class="menu">
-                <ul>
-                    <li><a onclick="showPage('home')">HOME</a></li>
-                    <li><a onclick="showPage('about')">ABOUT</a></li>
-                    <li><a onclick="showPage('services')">SERVICE</a></li>
-                    <li><a onclick="showPage('finance')">FINANCE</a></li>
-                    <li><a onclick="showPage('contact')">CONTACT</a></li>
-                </ul>
-            </div>
-        </div> 
-        
-        <div id="home" class="content">
-            <h1>Welcome to the County Government</h1>
-            <p class="par">Empowering Progress, Ensuring Accountability</p>
-        </div>
-        
-        <div id="about" class="content hidden">
-            <h1>About Us</h1>
-            <p class="par">Learn about the County Government's mission, vision, and commitment to service.</p>
-        </div>
+        </page>
 
-        <div id="services" class="content hidden">
-            <h1>Our Services</h1>
-            <p class="par">We offer a wide range of public services to support development and growth.</p>
-        </div>
+        <!-- Other Pages (Hidden until Login) -->
+        <pages style="display: none;">
+            <navigation>
+                <menu>
+                    <item page="home">HOME</item>
+                    <item page="about">ABOUT</item>
+                    <item page="services">SERVICE</item>
+                    <item page="finance">FINANCE</item>
+                    <item page="contact">CONTACT</item>
+                </menu>
+            </navigation>
 
-        <div id="finance" class="content hidden">
-            <h1>Finance</h1>
-            <p class="par">Explore our financial resources and budget allocations.</p>
-        </div>
+            <page id="home">
+                <title>Welcome to the County Government</title>
+                <description>Empowering Progress, Ensuring Accountability</description>
+            </page>
 
-        <div id="contact" class="content hidden">
-            <h1>Contact Us</h1>
-            <p class="par">Reach out for support or inquiries about our government services.</p>
-        </div>
-    </div>
+            <page id="about">
+                <title>About Us</title>
+                <description>Learn about the County Government's mission, vision, and commitment to service.</description>
+            </page>
 
-    <script>
-        function showPage(pageId) {
-            let sections = document.querySelectorAll('.content');
-            sections.forEach(section => section.classList.add('hidden'));
-            document.getElementById(pageId).classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+            <page id="services">
+                <title>Our Services</title>
+                <description>We offer a wide range of public services to support development and growth.</description>
+            </page>
+
+            <page id="finance">
+                <title>Finance</title>
+                <description>Explore our financial resources and budget allocations.</description>
+            </page>
+
+            <page id="contact">
+                <title>Contact Us</title>
+                <description>Reach out for support or inquiries about our government services.</description>
+            </page>
+        </pages>
+
+        <script>
+            function navigateTo(page) {
+                document.querySelector('page#signup').style.display = 'none';
+                document.querySelector('pages').style.display = 'block';
+            }
+        </script>
+    </body>
+</website>
